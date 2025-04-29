@@ -1,0 +1,20 @@
+{% extends 'components/navbar.html' %}
+{% load static %}
+{% block content %}
+    <h1>Posts:</h1>
+    {% for post in posts %}
+    <div class="card" style="width: 18rem;">
+   {% if post.image %}
+                    <img src="/media/{{ post.image }}">
+        {% else %}
+                    <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.istockphoto.com%2Fphotos%2Fimage-of-page-%2527not-found-404-error&psig=AOvVaw3B1fzg_OKFZ7PLa7s3hnHY&ust=1746027381863000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCIihkIHJ_YwDFQAAAAAdAAAAABB1">
+        {% endif %}
+  <div class="card-body">
+    <h5 class="card-title">{{ post.title }}</h5>
+    <p class="card-text">{{ post.content }}</p>
+    <a href="/library/posts/{{ post.id }}" class="btn btn-primary">Подробнее</a>
+  </div>
+  {% endfor %}
+
+</div>
+{% endblock %}
