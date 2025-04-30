@@ -1,6 +1,10 @@
-from django.http import HttpResponse
-from django.shortcuts import render
+from django.urls import path
+from . import views
 
-# Create your views here.
-def test_view(request):
-    return HttpResponse("Hello world")
+urlpatterns = [
+    path('', views.post_list, name='post_list'),
+    path('create/', views.post_create_view, name='post_create'),
+    path('<int:id>/', views.post_detail, name='post_detail'),
+    path('test/', views.test_view, name='test_view'),
+]
+
